@@ -1,0 +1,60 @@
+<mvc:View controllerName="com.drag-and-drop.drag-and-drop.controller.Main" xmlns:dnd="sap.ui.core.dnd" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.ui.table" xmlns:m="sap.m">
+	<m:Shell id="shell">
+		<m:App id="app">
+			<m:pages>
+				<m:Page id="page" title="Author Picker">
+					<m:content>
+						<m:HBox renderType="Bare">
+							<Table id="availableTable" selectionMode="Single" ariaLabelledBy="title"
+								rows="{ path: '/AvailableAuthors' }"
+								noData="No available authors">
+								<columns>
+									<Column>
+										<m:Text text="Author Name"/>
+										<template>
+											<m:Text text="{Name}" wrapping="false"/>
+										</template>
+									</Column>
+									<Column>
+										<m:Text text="Skill Level"/>
+										<template>
+											<m:Text text="{SkillLevel}" wrapping="false"/>
+										</template>
+									</Column>
+								</columns>
+								<dragDropConfig>
+									<dnd:DragInfo groupName="moveToChosenTable" sourceAggregation="rows" dragStart="onDragStart"/>
+									<dnd:DropInfo groupName="moveToAvailableTable" drop="onDropAvailableTable"/>
+								</dragDropConfig>
+							</Table>
+							<Table id="chosenTable" selectionMode="Single" ariaLabelledBy="title2"
+								rows="{ path: '/ChosenAuthors' }"
+								noData="Put some authors here">
+								<columns>
+									<Column>
+										<m:Text text="Author Name"/>
+										<template>
+											<m:Text text="{Name}" wrapping="false"/>
+										</template>
+									</Column>
+									<Column>
+										<m:Text text="Skill Level"/>
+										<template>
+											<m:Text text="{SkillLevel}" wrapping="false"/>
+										</template>
+									</Column>
+								</columns>
+								<dragDropConfig>
+									<dnd:DragInfo groupName="moveToAvailableTable" sourceAggregation="rows" dragStart="onDragStart"/>
+									<dnd:DropInfo groupName="moveToChosenTable" targetAggregation="rows" dropPosition="Between" drop="onDropChosenTable"/>
+									<dnd:DragDropInfo sourceAggregation="rows" targetAggregation="rows" dropPosition="Between" dragStart="onDragStart" drop="onDropChosenTable"/>
+								</dragDropConfig>
+							</Table>
+						</m:HBox>
+					</m:content>
+				</m:Page>
+			</m:pages>
+		</m:App>
+	</m:Shell>
+</mvc:View>

@@ -1,0 +1,14 @@
+#Password=<< Existing password/certificate removed on Export >>
+#
+#Wed Jul 27 12:24:28 UTC 2016
+Description=es5
+Type=HTTP
+Authentication=BasicAuthentication
+WebIDEUsage=odata_gen, odata_abap, bsp_execute_abap
+Name=es4
+WebIDEEnabled=true
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=https\://sapes5.sapdevcenter.com\:443
+User=your username
+WebIDESystem=gateway
