@@ -36,7 +36,45 @@ var sId = oEvent.getSource().getId();
 		alt: "SAPUI5 Logo",
 		press: onPressImage
 		}).placeAt("content");
-	});
+// eigenes Coding
+
+//
+	var oLabel = new sap.m.Label("rbgLabel", {
+		text: "Which logo do you like better?"
+		}).placeAt("content");	
+
+	var oRadioButton = new sap.m.RadioButton({
+		text: "Left Logo"
+		});
+	var oRadioButton2 = new sap.m.RadioButton({
+		text: "Right Logo"	
+		});
+	var oRadioButtonGroup = new sap.m.RadioButtonGroup({
+		columns: 2,
+		ariaLabelledBy: oLabel
+		});
+		oRadioButtonGroup.addButton(oRadioButton);
+		oRadioButtonGroup.addButton(oRadioButton2);
+		oRadioButtonGroup.placeAt("content");
+		
+		new sap.m.Label("rbg2Label", {
+			text: "Do you speak JavaScript?"
+			}).placeAt("content");
+			new sap.m.RadioButtonGroup({
+			columns: 2,
+			buttons: [
+				new sap.m.RadioButton({
+				text: "Yes"
+				}),
+				new sap.m.RadioButton({
+				text: "No"
+				}),
+			],
+			ariaLabelledBy: "rbg2Label"
+			}).placeAt("content");
+
+});
+
 </script>
 
 </head>
