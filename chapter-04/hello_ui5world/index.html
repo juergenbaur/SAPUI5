@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-<title>Hello World</title>
+<title>Hello World Page 103</title>
 
 <script id='sap-ui-bootstrap'
     src='../../resources/sap-ui-core.js'
@@ -12,9 +12,31 @@
 </script>
 
 <script>
-         sap.ui.getCore().attachInit(function () {
-             jQuery("#content").html("Hello UI5 World");
-         });
+sap.ui.getCore().attachInit(function () {
+
+var onPressImage = function(oEvent){
+var sId = oEvent.getSource().getId();
+	if(sId === "Image1"){  
+		alert("Wach auf");
+		}  
+		else{  
+		alert("Hello Juergen"); 
+		}  
+	};
+
+	var oImage = new sap.m.Image("Image1", {
+		src: "img/UI5_logo.png",
+		decorative: false,
+		alt: "SAPUI5 Logo",
+		press: onPressImage
+		}).placeAt("content");
+	var oImage2 = new sap.m.Image("Image2", {
+		src: "img/UI5_logo.png",
+		decorative: false,
+		alt: "SAPUI5 Logo",
+		press: onPressImage
+		}).placeAt("content");
+	});
 </script>
 
 </head>
